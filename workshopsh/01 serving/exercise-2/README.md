@@ -18,7 +18,7 @@ Because Knative is built on top of Kubernetes, you can use kubectl along with a 
     kind: Service
     metadata:
       name: fib-knative
-      namespace: default
+      namespace: knativelab
     spec:
       runLatest:
         configuration:

@@ -1,4 +1,4 @@
-## Config domain name for external invocation
+## Manage traffic
 
 
-Continue on to [exercise 1](../exercise-1/README.md).
+Continue on to [exercise 1](../exercise-1/README.md).          
