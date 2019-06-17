@@ -24,6 +24,7 @@ automatically.
    for i in install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl apply -f $i; done
    ```
 
+   If you want to delete it, using below command:
    ```shell
    for i in install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl delete -f $i; done
    ```
@@ -33,16 +34,16 @@ automatically.
 
 1. Create `istio-system` namespace
 
-   ```shell
-   cat <<EOF | kubectl apply -f -
-   apiVersion: v1
-   kind: Namespace
-   metadata:
-     name: istio-system
-     labels:
-       istio-injection: disabled
-   EOF
-   ```
+```shell
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: istio-system
+  labels:
+     istio-injection: disabled
+EOF
+```
 
 1. Enter the following command to install Istio with automatic sidecar injection:
 
@@ -77,16 +78,6 @@ kubectl apply -f istio.yaml
 ```
 kubectl apply --selector knative.dev/crd-install=true \
 --filename https://github.com/knative/serving/releases/download/v0.6.0/serving.yaml
-```
-
-```
-kubectl apply --selector knative.dev/crd-install=true \
---filename https://github.com/knative/serving/releases/download/v0.6.0/serving.yaml \
---filename https://github.com/knative/build/releases/download/v0.6.0/build.yaml \
---filename https://github.com/knative/eventing/releases/download/v0.6.0/release.yaml \
---filename https://github.com/knative/eventing-sources/releases/download/v0.6.0/eventing-sources.yaml \
---filename https://github.com/knative/serving/releases/download/v0.6.0/monitoring.yaml \
---filename https://raw.githubusercontent.com/knative/serving/v0.6.0/third_party/config/build/clusterrole.yaml
 ```
 
 ```
@@ -165,3 +156,5 @@ kubectl delete --filename https://github.com/knative/serving/releases/download/v
    If all of the pods shown are in a `Running` or `Completed` state then you should be all set.
 
 Continue on to [exercise 2](../exercise-2/README.md).
+
+Issue: v1.13.6+IKS
